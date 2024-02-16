@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-'''
-    All the test for the user model are applied here
-'''
 
+'''
+    Test for the user model are applied here.
+'''
 
 import unittest
 from models.base_model import BaseModel
@@ -19,7 +19,7 @@ class TestUser(unittest.TestCase):
 
     def test_User_inheritance(self):
         '''
-            Test that the User class inherits from the BaaseModel
+            tests from the User class Inherited from BaseModel
         '''
         new_user = User()
         self.assertIsInstance(new_user, BaseModel)
@@ -45,7 +45,7 @@ class TestUser(unittest.TestCase):
 
     def test_type_first_name(self):
         '''
-            Test the type of first name
+            Test the type of name
         '''
         new = User()
         name = getattr(new, "first_name")
@@ -53,12 +53,11 @@ class TestUser(unittest.TestCase):
 
     def test_type_last_name(self):
         '''
-            Test the type of last name
+            Test the type of last_name
         '''
         new = User()
         name = getattr(new, "last_name")
         self.assertIsInstance(name, str)
-
 
     def test_type_password(self):
         '''
@@ -67,4 +66,3 @@ class TestUser(unittest.TestCase):
         new = User()
         name = getattr(new, "password")
         self.assertIsInstance(name, str)
-        _

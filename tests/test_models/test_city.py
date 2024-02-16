@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-    All the test for the user model are applied here.
+    Tests for the user model are here.
 '''
 
 import unittest
@@ -11,12 +11,12 @@ from models.city import City
 
 class TestUser(unittest.TestCase):
     '''
-        User Class Testing
+        Testing User class
     '''
 
     def test_City_inheritance(self):
         '''
-            City class tests Inherited from the BaseModel
+            Tests that the City class Inherits from BaseModel
         '''
         new_city = City()
         self.assertIsInstance(new_city, BaseModel)
@@ -28,15 +28,15 @@ class TestUser(unittest.TestCase):
 
     def test_type_name(self):
         '''
-            Type of name
-        '''
+            Test the type of name
+             '''
         new_city = City()
         name = getattr(new_city, "name")
         self.assertIsInstance(name, str)
 
     def test_type_name(self):
         '''
-            Type of name
+            Test the type of name
         '''
         new_city = City()
         name = getattr(new_city, "state_id")

@@ -7,14 +7,14 @@ from models.base_model import BaseModel
 from models.state import State
 
 
-class TestState(unittest.Testcase):
+class TestState(unittest.TestCase):
     '''
         Test the State class.
     '''
 
     def test_State_inheritence(self):
         '''
-            Test that State class inherits from BaseModel
+            Test that State class inherits from BaseModel.
         '''
         new_state = State()
         self.assertIsInstance(new_state, BaseModel)
@@ -26,7 +26,7 @@ class TestState(unittest.Testcase):
         new_state = State()
         self.assertTrue("name" in new_state.__dir__())
 
-    def test_Stae_attributes_type(self):
+    def test_State_attributes_type(self):
         '''
             Test that State class attribute name is class type str.
         '''

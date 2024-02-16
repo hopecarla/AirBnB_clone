@@ -7,6 +7,6 @@ from models.base_model import BaseModel
 
 class Amenity(BaseModel):
     '''
-        Implementation of the Amenities.
+        Implementation for the Amenities.
     '''
     name = ""

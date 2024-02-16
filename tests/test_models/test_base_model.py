@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-'''
-    All the base_model tests are applied here
-'''
 
+'''
+    Tests for the base_mode
+'''
 
 import unittest
 from models.base_model import BaseModel
@@ -13,51 +13,52 @@ import datetime
 
 class TestBase(unittest.TestCase):
     '''
-        BaseModel class testing
+        Testing the base class model.
     '''
 
     def setUp(self):
         '''
-            Initializing an instance
+            Initializing instance.
         '''
         self.my_model = BaseModel()
-        self.my_model.name = 
+        self.my_model.name = "Binita Rai"
 
     def TearDown(self):
         '''
-            Removimg instance
+            Removing instance.
         '''
         del self.my_model
-        
+
     def test_id_type(self):
         '''
-            Checks that the id's type is a string
+            Checks that the type of the id is string.
         '''
         self.assertEqual("<class 'str'>", str(type(self.my_model.id)))
 
     def test_ids_differ(self):
         '''
-            Checks that the ids of both instances are different
+            Checks that the ids between two instances are different.
         '''
         new_model = BaseModel()
         self.assertNotEqual(new_model.id, self.my_model.id)
 
     def test_name(self):
         '''
-            Checks if an attribute has been added
+            Checks that an attribute can be added.
         '''
-        self.assertEqual(
+        self.assertEqual("Binita Rai", self.my_model.name)
 
-    def test_updated_created_equal(self):
+    def test_a_updated_created_equal(self):
         '''
-            Checks if the dates are equal
+            Checks that both dates are equal.
         '''
         self.assertEqual(self.my_model.updated_at.year,
                          self.my_model.created_at.year)
 
     def test_save(self):
         '''
-            Checks if the dates differ after updating the instance
+            Checks that after updating the instance; the dates differ in the
+             updated_at attribute.
         '''
         old_update = self.my_model.updated_at
         self.my_model.save()
@@ -65,7 +66,7 @@ class TestBase(unittest.TestCase):
 
     def test_str_overide(self):
         '''
-            Checks if the right message was printed
+            Checks that the right message gets printed.
         '''
         backup = sys.stdout
         inst_id = self.my_model.id
@@ -81,7 +82,7 @@ class TestBase(unittest.TestCase):
 
     def test_to_dict_type(self):
         '''
-            Checks the to_dict method returns type
+            Checks that the to_dict method return type.
         '''
 
         self.assertEqual("<class 'dict'>",
@@ -89,28 +90,29 @@ class TestBase(unittest.TestCase):
 
     def test_to_dict_class(self):
         '''
-            Checks that the __class__ key exists
+            Checks that the __class__ key exists.
         '''
-        
+
         self.assertEqual("BaseModel", (self.my_model.to_dict())["__class__"])
 
     def test_to_dict_type_updated_at(self):
         '''
-            Checks the type of the value in updated_at
+            Checks the type of the value of updated_at.
         '''
         self.assertEqual("<class 'str'>",
-                          str(type((self.my_model.to_dict())["updated_at"])))
+                         str(type((self.my_model.to_dict())["updated_at"])))
 
     def test_to_dict_type_created_at(self):
         '''
-            Checks the type of the value in created_at
+            Checks the type of the value of created_at.
         '''
-        tmp = self.my_model.to_dict()
+               tmp = self.my_model.to_dict()
         self.assertEqual("<class 'str'>", str(type(tmp["created_at"])))
 
     def test_kwargs_instantiation(self):
         '''
-            Test that an instance was created using th ekey value pair
+            Test that an instance is created using the
+            key value pair.
         '''
         my_model_dict = self.my_model.to_dict()
         new_model = BaseModel(**my_model_dict)
@@ -118,8 +120,8 @@ class TestBase(unittest.TestCase):
 
     def test_type_created_at(self):
         '''
-            Test that the new_model's updated_at 
-            type is datetime
+            Test that the new_model's updated_at
+            data type is datetime.
         '''
         my_model_dict = self.my_model.to_dict()
         new_model = BaseModel(my_model_dict)
@@ -127,17 +129,17 @@ class TestBase(unittest.TestCase):
 
     def test_type_updated_at(self):
         '''
-            Test that the new model's created_at
-            type is datetime
+            Test that the new_model's created_at
+            data type is datetime.
         '''
-        my_model_dict = self.my_model._to_dict()
+        my_model_dict = self.my_model.to_dict()
         new_model = BaseModel(my_model_dict)
         self.assertTrue(isinstance(new_model.updated_at, datetime.datetime))
 
     def test_compare_dict(self):
         '''
-            Test that the dictionary values of the new_model and my_model
-            are the same
+            Test that the new_model's and my_model's
+            dictionary values are same.
         '''
         my_model_dict = self.my_model.to_dict()
         new_model = BaseModel(**my_model_dict)
@@ -146,8 +148,8 @@ class TestBase(unittest.TestCase):
 
     def test_instance_diff(self):
         '''
-            Test that my_model and the new_model are not the same
-            instance
+            Test that the my_model and new_model are
+            not the same instance.
         '''
         my_model_dict = self.my_model.to_dict()
         new_model = BaseModel(my_model_dict)

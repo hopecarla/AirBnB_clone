@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-    The State class
+    Implementation of the State class
 '''
 
 from models.base_model import BaseModel
@@ -8,6 +8,6 @@ from models.base_model import BaseModel
 
 class State(BaseModel):
     '''
-        State class
+        Implementation for the State.
     '''
     name = ""
